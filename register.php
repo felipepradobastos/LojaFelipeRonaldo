@@ -30,3 +30,46 @@
         </div>
     </nav>
 </header>
+<bord>
+
+<div class="constraint">
+<div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="name" type="text" class="validate" name="nome">
+          <label for="name">Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="tel" type="text" class="validate" name="telefone">
+          <label for="tel">Telefone</label>
+        </div>
+      </div>
+      <div class="row">
+      <div class="input-field col s6">
+          <input  id="documento" type="text" class="validate" name="cpf">
+          <label for="documento">Documento</label>
+        </div>
+      </div>
+      <div class="row">
+      <div class="input-field col s12">
+          <input id="email" type="email" class="validate" name="email">
+          <label for="email">Email</label>
+        </div>
+        
+      </div>
+      <div class="row">
+      <div class="input-field col s12">
+          <input id="password" type="password" class="validate" name="senha" >
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit">Submit
+      </button>
+    </form>
+    
+  </div>
+</div>
+
+
+</bord>

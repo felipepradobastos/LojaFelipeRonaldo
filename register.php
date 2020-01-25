@@ -33,9 +33,9 @@
 <bord>
 
 <div class="constraint">
-<div class="row">
+<div class="row grey darken-1" >
     <form class="col s12">
-      <div class="row">
+      <div class="row grey darken-1">
         <div class="input-field col s6">
           <input id="name" type="text" class="validate" name="nome">
           <label for="name">Name</label>
@@ -45,20 +45,20 @@
           <label for="tel">Telefone</label>
         </div>
       </div>
-      <div class="row">
+      <div class="row grey darken-1">
       <div class="input-field col s6">
           <input  id="documento" type="text" class="validate" name="cpf">
           <label for="documento">Documento</label>
         </div>
       </div>
-      <div class="row">
+      <div class="row grey darken-1">
       <div class="input-field col s12">
           <input id="email" type="email" class="validate" name="email">
           <label for="email">Email</label>
         </div>
         
       </div>
-      <div class="row">
+      <div class="row grey darken-1">
       <div class="input-field col s12">
           <input id="password" type="password" class="validate" name="senha" >
           <label for="password">Password</label>

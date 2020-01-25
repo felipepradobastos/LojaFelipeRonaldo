@@ -4,7 +4,7 @@
 define ("DB_SERVIDOR", "localhost");
 define ("DB_USUARIO", "root");
 define ("DB_SENHA", "");
-define ("DB_NOME", "");
+define ("DB_NOME", "loja");
 
 
 class MySQLiConnection extends mysqli
@@ -37,13 +37,13 @@ class MySQLiConnection extends mysqli
 }
 
 ?>
-Forma de usar:
-$My = new MySQLiConnection();// conecta-se automaticamente ao servidor MySQL
-$sql = $My->query ("Select * From tabela");// a função query() é nativa da classe mysqli
-
-while ($f = $sql->fetch_object())
-{
-echo $f->nome . "<br />";
-}
-
-$sql->close();// libera a memória usada na consulta
+<!--Forma de usar:-->
+<!--$My = new MySQLiConnection();// conecta-se automaticamente ao servidor MySQL-->
+<!--$sql = $My->query ("Select * From tabela");// a função query() é nativa da classe mysqli-->
+<!---->
+<!--while ($f = $sql->fetch_object())-->
+<!--{-->
+<!--echo $f->nome . "<br />";-->
+<!--}-->
+<!---->
+<!--$sql->close();// libera a memória usada na consulta-->

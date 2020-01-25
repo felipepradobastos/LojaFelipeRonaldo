@@ -25,7 +25,7 @@
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a><i class="material-icons">home</i></a></li>
                 <li><a class="dropdown-trigger" href="#!" data-target="dropcategory">Produtos<i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a href="register.php">Cadastro</a></li>
+                <li><a href="Registro/register.php">Cadastro</a></li>
             </ul>
         </div>
     </nav>
@@ -34,6 +34,5 @@
 <body>
 <div class="row">
     <div class="col s8"></div>
-
     </div>
 </body>

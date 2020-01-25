@@ -13,7 +13,7 @@
 </head>
 
 <header>
-    <!--    Dropdown-->
+    <!--    Dropdownronaldo-->
     <ul id="dropcategory" class="dropdown-content">
         <li><a href="#!">PC</a></li>
         <li><a href="#!">Playstation</a></li>

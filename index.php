@@ -30,7 +30,6 @@
         </div>
     </nav>
 </header>
-
 <body>
 <div class="row">
     <div class="col s8"></div>

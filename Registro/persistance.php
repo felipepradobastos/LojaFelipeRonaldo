@@ -17,6 +17,7 @@
         $usuario->setSenha($_REQUEST['password']);
         $usuario->setDocumento($_REQUEST['documento']);
         $usuario->setTelefone($_REQUEST['telefone']);
+        $usuario->setId($_REQUEST['idusuario']);
     }
 
 
@@ -31,6 +32,13 @@
             }
             break;
         case 2:
+            if($usuario->up($con, $usuario->getNome(), $usuario->getEmail(),$usuario->getSenha(),$usuario->getDocumento(),$usuario->getTelefone(),$usuario->getId())){
+                $sucesso =true;
+
+            }else{
+                $sucesso =false;
+            }
+
             break;
         case 3:
             if(!empty($_REQUEST['id'])){

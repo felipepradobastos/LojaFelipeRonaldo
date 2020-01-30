@@ -52,6 +52,16 @@ class Usuario
         die();
 
     }
+    public function getUser($con,$id){
+
+        $query = "SELECT * FROM usuario where idusuario = {$id};";
+
+        $obj = $con->query($query);
+
+        return $obj;
+        die();
+
+    }
 
 
     public function add($con, $nome, $email, $senha, $documento, $telefone)
@@ -63,12 +73,40 @@ class Usuario
 
         $query = "INSERT INTO usuario (nome,email,senha,documento,telefone) VALUES (";
         $query .= "'{$nome}', ";
-        $query .= "'{$email}', ";
+        $query .= "- ";
         $query .= "'{$senha}', ";
         $query .= "'{$documento}', ";
         $query .= "'{$telefone}'";
         $query .= ")";
+        echo '<pre>';
+        print_r($query);
+    
+        echo '</pre>';
+        die();
 
+
+        if($con->query($query)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function up($con, $nome, $email, $senha, $documento, $telefone,$iduser)
+    {
+
+        if(empty($nome) || empty($email) || empty($senha) || empty($documento) || empty($telefone) || empty($iduser)){
+            return false;
+        }
+
+        $query = "UPDATE usuario SET nome='{$nome}',email='{$email}',senha='{$senha}',documento='{$documento}',telefone ='{$telefone}' WHERE idusuario = {$iduser}";
+        
+        
+        echo '<pre>';
+        print_r($query);
+    
+        echo '</pre>';
+        die();
+       
 
         if($con->query($query)){
             return true;

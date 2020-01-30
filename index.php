@@ -82,7 +82,7 @@ $objUsuarios = $usuario->getUsuario($con);
                         <td><?php echo $usuario['idusuario']?></td>
                         <td><?php echo $usuario['nome']?></td>
                         <td><?php echo $usuario['telefone']?></td>
-                        <td><a  href="Registro/persistance.php?action=2&id=<?php echo $usuario['idusuario']?>">Editar</a></td>
+                        <td><a  href="Registro/editar.php?action=2&id=<?php echo $usuario['idusuario']?>">Editar</a></td>
                         <td><a href="index.php?action=3&id=<?php echo $usuario['idusuario']?>">Excluir</a></td>
                     </tr>
                     <?php

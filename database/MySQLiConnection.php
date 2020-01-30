@@ -28,22 +28,15 @@ class MySQLiConnection extends mysqli
     }
 
 
-    public function __destruct()
-    {
-        if (mysqli_connect_errno() == 0)
-            $this->close();
-    }
-
 }
-
+//Forma de usar:
+//$My = new MySQLiConnection();// conecta-se automaticamente ao servidor MySQL
+//$sql = $My->query ("Sel ect * From tabela");// a função query() é nativa da classe mysqli
+//
+//while ($f = $sql->fetch_object())
+//{
+//    echo $f->nome . "<br />";
+//}
+//
+//$sql->close();// libera a memória usada na consulta
 ?>
-<!--Forma de usar:-->
-<!--$My = new MySQLiConnection();// conecta-se automaticamente ao servidor MySQL-->
-<!--$sql = $My->query ("Select * From tabela");// a função query() é nativa da classe mysqli-->
-<!---->
-<!--while ($f = $sql->fetch_object())-->
-<!--{-->
-<!--echo $f->nome . "<br />";-->
-<!--}-->
-<!---->
-<!--$sql->close();// libera a memória usada na consulta-->

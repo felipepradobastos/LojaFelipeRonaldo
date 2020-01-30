@@ -7,10 +7,43 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script type="text/javascript" src="src/js/index.js"> </script>
-    <link rel="stylesheet" href="src/css/default.css">
-    <link rel="stylesheet" href="src/css/index.css">
+    <script type="text/javascript" src="../src/js/index.js"> </script>
+    <link rel="stylesheet" href="../src/css/default.css">
+    <link rel="stylesheet" href="../src/css/index.css">
 </head>
+
+<?php
+include "model/Usuario.php";
+include "database/MySQLiConnection.php";
+
+if (!empty($_REQUEST['action'])){
+?>
+    <input type="hidden" value="<?php echo $_REQUEST['id']?>" id="requestaction">
+    <script>
+        $(document).ready(function() {
+            console.log($('#requestaction').val());
+            var id =$('#requestaction').val();
+            $.ajax({
+                url: "Registro/persistance.php",
+                data:{
+                    action: 3,
+                    id: id
+                },
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        });
+    </script>
+<?php
+    header("Refresh: 0; url=index.php");
+}
+
+$con = new MySQLiConnection();
+$usuario = new Usuario();
+$objUsuarios = $usuario->getUsuario($con);
+
+?>
 
 <header>
     <!--    Dropdown-->
@@ -33,5 +66,36 @@
 <body>
 <div class="row">
     <div class="col s8"></div>
-    </div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>NOME</th>
+                <th>TELEFONE</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <?php
+                foreach ($objUsuarios as $usuario){
+                    ?>
+                    <tr>
+                        <input type="hidden" class="id_usuario" ></input>
+                        <td><?php echo $usuario['idusuario']?></td>
+                        <td><?php echo $usuario['nome']?></td>
+                        <td><?php echo $usuario['telefone']?></td>
+                        <td><a  href="Registro/persistance.php?action=2&id=<?php echo $usuario['idusuario']?>">Editar</a></td>
+                        <td><a href="index.php?action=3&id=<?php echo $usuario['idusuario']?>">Excluir</a></td>
+                    </tr>
+                    <?php
+                }
+            ?>
+        </table>
+</div>
 </body>
+
+<script>
+    $(document).ready(function() {
+        $('.btn-excluir').click(function () {
+            alert($('.btn-excluir').val());
+        });
+    });
+</script>

@@ -20,10 +20,10 @@
         <li><a href="#!">XBOX</a></li>
     </ul>
     <nav>
-        <div class="nav-wrapper grey darken-1" >
+        <div class="nav-wrapper grey " >
             <a href="#" class="brand-logo right">Logo</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a><i class="material-icons">home</i></a></li>
+                <li><a href="../index.php"><i class="material-icons">home</i></a></li>
                 <li><a class="dropdown-trigger" href="#!" data-target="dropcategory">Produtos<i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a href="register.php">Cadastro</a></li>
             </ul>
@@ -34,39 +34,38 @@
 
 <body>
     <div class="constraint">
-        <div class="row grey darken-1">
+        <div class="row grey ">
             <form class="col s12">
-                <div class="row grey darken-1">
+                <div class="row grey ">
                     <div class="input-field col s6">
-                        <input id="name" type="text" class="validate" name="nome">
+                        <input id="name" type="text" class="validate" name="nome" required>
                         <label for="name">Name</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="tel" type="text" class="validate" name="telefone">
+                        <input id="tel" type="text" class="validate" name="telefone" required>
                         <label for="tel">Telefone</label>
                     </div>
                 </div>
-                <div class="row grey darken-1">
+                <div class="row grey ">
                     <div class="input-field col s6">
-                        <input id="documento" type="text" class="validate" name="cpf">
+                        <input id="documento" type="text" class="validate" name="cpf" required>
                         <label for="documento">Documento</label>
                     </div>
                 </div>
-                <div class="row grey darken-1">
+                <div class="row grey ">
                     <div class="input-field col s12">
-                        <input id="email" type="email" class="validate" name="email">
+                        <input id="email" type="email" class="validate" name="email" required>
                         <label for="email">Email</label>
                     </div>
 
                 </div>
-                <div class="row grey darken-1">
+                <div class="row grey ">
                     <div class="input-field col s12">
-                        <input id="password" type="password" class="validate" name="senha">
+                        <input id="password" type="password" class="validate" name="senha" required>
                         <label for="password">Password</label>
                     </div>
                 </div>
-                <button id="register-submit" class="btn waves-effect waves-light" type="button">Submit
-                </button>
+                <button id="register-submit" class="btn waves-effect waves-light" type="button">Enviar</button>
             </form>
         </div>
     </div>
@@ -81,7 +80,7 @@
                 var nome = $("#name").val();
                 var telefone = $("#tel").val();
                 var documento = $("#documento").val();
-                var senha = $("#password").val()
+                var senha = $("#password").val();
                 $.ajax({
                     url: "persistance.php",
                     data:{
@@ -89,14 +88,11 @@
                         nome: nome,
                         telefone: telefone,
                         documento: documento,
-                        password: senha
+                        password: senha,
+                        action: 1
                     },
                     success: function (data) {
-                        if(data.sucesso == true){
-                            alert("Cadastrado com Sucesso !");
-                        }else{
-                            alert("Houve um erro ao cadastrar !");
-                        }
+                        console.log(data);
                     }
                 });
             });

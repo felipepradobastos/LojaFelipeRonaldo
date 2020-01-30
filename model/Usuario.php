@@ -18,7 +18,7 @@ class Usuario
      * @param $documento
      * @param $telefone
      */
-    public function __construct($id=null, $nome=null, $email=null, $senha=null, $documento=null, $telefone=null)
+    public function __construct($id = null, $nome = null, $email = null, $senha = null, $documento = null, $telefone = null)
     {
         $this->id = $id;
         $this->nome = $nome;
@@ -26,6 +26,55 @@ class Usuario
         $this->senha = $senha;
         $this->documento = $documento;
         $this->telefone = $telefone;
+    }
+
+
+    public function delete($con,$id){
+
+        $query = "DELETE FROM usuario where idusuario = {$id}";
+
+
+        if($con->query($query)){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    public function getUsuario($con){
+
+        $query = "SELECT * FROM usuario ORDER BY idusuario ASC";
+
+        $obj = $con->query($query);
+
+        return $obj;
+        die();
+
+    }
+
+
+    public function add($con, $nome, $email, $senha, $documento, $telefone)
+    {
+
+        if(empty($nome) || empty($email) || empty($senha) || empty($documento) || empty($telefone)){
+            return false;
+        }
+
+        $query = "INSERT INTO usuario (nome,email,senha,documento,telefone) VALUES (";
+        $query .= "'{$nome}', ";
+        $query .= "'{$email}', ";
+        $query .= "'{$senha}', ";
+        $query .= "'{$documento}', ";
+        $query .= "'{$telefone}'";
+        $query .= ")";
+
+
+        if($con->query($query)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 
